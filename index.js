@@ -16,8 +16,8 @@ var cyberSourceRouter = require('./routes/cybersource');
 var app = express();
 
 
-app.use('/encode', indexRouter);
-app.use('/cybersource', cyberSourceRouter);
+// app.use('/encode', indexRouter);
+// app.use('/cybersource', cyberSourceRouter);
 
 
 
