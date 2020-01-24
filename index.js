@@ -8,10 +8,10 @@ var path = require('path');
 var port = process.env.PORT || 8080;
 
 
-var indexRouter = require('./routes/index');
-var cyberSourceRouter = require('./routes/cybersource');
+// var indexRouter = require('./routes/index');
+// var cyberSourceRouter = require('./routes/cybersource');
 
-var cors = require('cors')
+// var cors = require('cors')
 
 
 var app = express();
@@ -29,8 +29,10 @@ app.use(cors())
 //app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, '/dist/app')));
 
-app.use('/encode', indexRouter);
-app.use('/cybersource', cyberSourceRouter);
+ app.get('/', (req, res) => res.send('Hello World!'))
+
+// app.use('/encode', indexRouter);
+// app.use('/cybersource', cyberSourceRouter);
 
 
 
