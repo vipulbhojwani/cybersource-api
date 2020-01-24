@@ -13,6 +13,9 @@ var port = process.env.PORT || 8080;
 var indexRouter = require('./routes/index');
 var cyberSourceRouter = require('./routes/cybersource');
 
+var app = express();
+
+
 app.use('/encode', indexRouter);
 app.use('/cybersource', cyberSourceRouter);
 
@@ -21,7 +24,6 @@ app.use('/cybersource', cyberSourceRouter);
 // var cors = require('cors')
 
 
-var app = express();
 
 //app.use(cors())
 
