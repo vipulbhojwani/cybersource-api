@@ -48,9 +48,9 @@ var app = express();
 
   console.log(req.params.data);
   
-//  res.send({signature: generateDigest(req.params.data)});
+  res.send({signature: generateDigest(req.params.data)});
   
-    res.send({signature: req.params.data});
+//    res.send({signature: req.params.data});
   
   //res.send(req.params.data);
 
@@ -58,18 +58,18 @@ var app = express();
 });
 
 
-// function generateDigest(payload) {
+function generateDigest(payload) {
 
-	// var buffer = Buffer.from(payload, 'utf8');
+	var buffer = Buffer.from(payload, 'utf8');
 	
-	// const hash = crypto.createHmac('sha256', SECRET_KEY);
+	const hash = crypto.createHmac('sha256', SECRET_KEY);
 	
-	// hash.update(buffer);
+	hash.update(buffer);
 	
-	// var digest = hash.digest('base64');
+	var digest = hash.digest('base64');
 	
-	// return digest;
-// }
+	return digest;
+}
 
 
 
