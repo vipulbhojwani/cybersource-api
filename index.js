@@ -11,7 +11,7 @@ var crypto = require('crypto');
 var port = process.env.PORT || 8080;
 
 
-var indexRouter = require('routes/index');
+//var indexRouter = require('routes/index');
 // var cyberSourceRouter = require('./routes/cybersource');
 
 var app = express();
@@ -42,7 +42,7 @@ var app = express();
  app.get('/', (req, res) => res.send('Hello World!'))
  
  
- app.get('/encode/:data', function(req, res, next) {
+ app.get('/encode/:data', function(req, res) {
   
   // let dataToEncode=req.data;
 
