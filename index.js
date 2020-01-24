@@ -1,4 +1,5 @@
-var express = require('express');
+const express = require('express')
+
 
 // var createError = require('http-errors');
 // var path = require('path');
@@ -17,7 +18,7 @@ var port = process.env.PORT || 8080;
 
 var app = express();
 
-app.use(cors())
+//app.use(cors())
 
 
 // view engine setup
