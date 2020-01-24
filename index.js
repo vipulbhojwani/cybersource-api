@@ -1,70 +1,71 @@
-// var createError = require('http-errors');
-// var express = require('express');
-// var path = require('path');
-// var cookieParser = require('cookie-parser');
-// var logger = require('morgan');
-// var path = require('path');
-// var PORT = process.env.PORT || 8080;
-
-
-// var indexRouter = require('./routes/index');
-// var cyberSourceRouter = require('./routes/cybersource');
-
-// var cors = require('cors')
-
-
-// var app = express();
-
-// app.use(cors())
-
-
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
-// app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
-// //app.use(express.static(path.join(__dirname, '/dist/app')));
-
-// app.use('/encode', indexRouter);
-// app.use('/cybersource', cyberSourceRouter);
-
-
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-  // next(createError(404));
-// });
-
-// // error handler
-// app.use(function(err, req, res, next) {
-  // // set locals, only providing error in development
-  // res.locals.message = err.message;
-  // res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // // render the error page
-  // res.status(err.status || 500);
-  // res.render('error');
-// });
-
-// app.listen(PORT);
-
-
-module.exports = app;
-var createerror = require('http-errors');
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieparser = require('cookie-parser');
+var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var path = require('path');
+var port = process.env.PORT || 8080;
 
-const app = express()
-const port = process.env.PORT || 8080
 
-app.get('/', (req, res) => res.send('Hello World!'))
+var indexRouter = require('./routes/index');
+var cyberSourceRouter = require('./routes/cybersource');
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+var cors = require('cors')
+
+
+var app = express();
+
+app.use(cors())
+
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+//app.use(express.static(path.join(__dirname, '/dist/app')));
+
+app.use('/encode', indexRouter);
+app.use('/cybersource', cyberSourceRouter);
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+app.listen(port);
+
+
+//module.exports = app;
+
+// var createerror = require('http-errors');
+// var express = require('express');
+// var path = require('path');
+// var cookieparser = require('cookie-parser');
+// var logger = require('morgan');
+// var path = require('path');
+
+// const app = express()
+// const port = process.env.PORT || 8080
+
+// app.get('/', (req, res) => res.send('Hello World!'))
+
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
 
