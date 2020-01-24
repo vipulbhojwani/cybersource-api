@@ -1,5 +1,3 @@
-const functions = require('firebase-functions');
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,8 +6,8 @@ var logger = require('morgan');
 var path = require('path');
 
 
-var indexRouter = require('./server/routes/index');
-var cyberSourceRouter = require('./server/routes/cybersource');
+var indexRouter = require('./routes/index');
+var cyberSourceRouter = require('./routes/cybersource');
 
 var cors = require('cors')
 
@@ -27,7 +25,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '/dist/app')));
+//app.use(express.static(path.join(__dirname, '/dist/app')));
 
 app.use('/encode', indexRouter);
 app.use('/cybersource', cyberSourceRouter);
@@ -49,11 +47,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(80);
+app.listen(8080);
 
 
-//module.exports = app;
+module.exports = app;
 
-exports.app = functions.https.onRequest(app);
+
 
 
