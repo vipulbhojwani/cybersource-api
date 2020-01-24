@@ -47,8 +47,18 @@ var app = express();
   // let dataToEncode=req.data;
 
   console.log(req.params.data);
+  var signature;
+   try{
+   signature = generateDigest(req.params.data);
+   }
+   catch(e)
+   {
+	   signature = e;
+   }
+   
   
-  res.send({signature: generateDigest(req.params.data)});
+  
+  res.send({signature: signature});
   
 //    res.send({signature: req.params.data});
   
