@@ -10,8 +10,8 @@ var logger = require('morgan');
 var port = process.env.PORT || 8080;
 
 
-var indexRouter = require('./routes/index');
-var cyberSourceRouter = require('./routes/cybersource');
+// var indexRouter = require('./routes/index');
+// var cyberSourceRouter = require('./routes/cybersource');
 
 var app = express();
 
